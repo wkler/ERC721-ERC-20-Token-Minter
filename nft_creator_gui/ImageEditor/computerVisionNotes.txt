@@ -1,0 +1,40 @@
+#common cv2 functions
+#cv2.cvtColor(img, cv.COLOR_BGR2GRAY)
+#cv2.GaussianBlur(img, (1, 1), cv2.BORDER_DEFAULT)
+#cv2.Canny(img, 125, 175)
+
+
+
+# print(os.getcwd())
+
+
+# blur1 = cv.GaussianBlur(img, (1, 1), cv.BORDER_DEFAULT)
+# blur2 = cv.GaussianBlur(img, (3, 3), cv.BORDER_DEFAULT)
+# blur3 = cv.GaussianBlur(img, (5, 5), cv.BORDER_DEFAULT)
+# canny1 = cv.Canny(blur1, 125, 175)
+# canny2 = cv.Canny(blur2, 125, 175)
+# canny3 = cv.Canny(blur3, 125, 175)
+# gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+# dilated = cv.dilate(canny3, (21, 21), iterations=5)
+
+
+
+# ###############################################################################################
+# #Reads original photo
+# lights_truck = cv.imread("spinning_lights_truck.jpg")
+# #Converts it to gray
+# lights_truck_gray = cv.cvtColor(lights_truck, cv.COLOR_BGR2GRAY)
+
+# #Applys adaptive thresholding
+# adaptive_thresh = cv.adaptiveThreshold(lights_truck_gray, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.
+# THRESH_BINARY, 15, 7)
+# #cv.imwrite("spinning_lights_truck.jpg", adaptive_thresh)
+# cv.imshow("adaptive Threshholding", adaptive_thresh)
+
+# #Applies inverse adaptive thresholding
+# adaptive_thresh_INV = cv.adaptiveThreshold(lights_truck_gray, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.
+# THRESH_BINARY_INV, 15, 7)
+# #cv.imwrite("spinning_lights_truck_jpg", adaptive_thresh_INV)
+# cv.imshow("adaptive Threshholding_INV", adaptive_thresh_INV)
+
+# cv.waitKey(0)
