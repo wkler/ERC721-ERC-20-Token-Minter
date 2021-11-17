@@ -1,6 +1,5 @@
 import sys
 sys.path.append("ImageEditor")
-sys.path.append("metadata_info")
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 from PyQt5 import QtGui as qtg 
@@ -8,7 +7,6 @@ from PyQt5 import uic
 from PyQt5.QtGui import QPixmap
 from adaptive_threshold import adaptive_threshold_style
 from cartoon_style import cartoonify_image
-from metadata import metadata_dictionary
 
 
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
@@ -145,15 +143,12 @@ class Main(baseClass):
     def create_nft(self):
         if self.current_state == self.POSSIBLE_STATES[2]:
             self.name_input_box = self.ui.nameInputBox
-            self.nft_metadata = metadata_dictionary
-            self.nft_metadata["name"] = self.name_input_box.text()
+            with open("TextFiles/nft_name.txt", "w") as name_text_file:
+                name_text_file.write(self.name_input_box.text())
 
             self.description_input_box = self.ui.descriptionInputBox
-            self.nft_metadata["description"] = self.description_input_box.text()
-            print(self.nft_metadata)
-
-
-
+            with open("TextFiles/nft_description.txt", "w") as description_text_file:
+                description_text_file.write(self.description_input_box.text())
 
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)
