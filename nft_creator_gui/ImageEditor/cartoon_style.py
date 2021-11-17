@@ -1,7 +1,7 @@
 import cv2 as cv
 
 def cartoonify_image():
-    image_path = "ImagePathTextFiles/image_path.txt"
+    image_path = "TextFiles/image_path.txt"
     file = open(image_path, "r")
     image_string = file.read()
     image = cv.imread(image_string, cv.IMREAD_COLOR)

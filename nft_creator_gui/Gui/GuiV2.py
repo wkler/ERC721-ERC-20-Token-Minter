@@ -58,8 +58,17 @@ class Ui_MainWindow(object):
         self.mintButton.setGeometry(QtCore.QRect(310, 370, 91, 41))
         self.mintButton.setObjectName("mintButton")
         self.deleteButton = QtWidgets.QPushButton(self.rightGroupBox)
-        self.deleteButton.setGeometry(QtCore.QRect(210, 370, 91, 41))
+        self.deleteButton.setGeometry(QtCore.QRect(10, 370, 91, 41))
         self.deleteButton.setObjectName("deleteButton")
+
+        self.nameInputBox = QtWidgets.QLineEdit(self.rightGroupBox)
+        self.nameInputBox.setGeometry(QtCore.QRect(110, 370, 191, 20))
+        self.nameInputBox.setObjectName("nameInputBox")
+        
+        self.descriptionInputBox = QtWidgets.QLineEdit(self.rightGroupBox)
+        self.descriptionInputBox.setGeometry(QtCore.QRect(110, 390, 191, 20))
+        self.descriptionInputBox.setText("")
+        self.descriptionInputBox.setObjectName("descriptionInputBox")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -89,9 +98,10 @@ class Ui_MainWindow(object):
         self.rightGroupBox.setTitle(_translate("MainWindow", "Photo Minting Area"))
         self.mintButton.setText(_translate("MainWindow", "MINT"))
         self.deleteButton.setText(_translate("MainWindow", "Delete"))
+        self.nameInputBox.setPlaceholderText(_translate("MainWindow", "NFT name..."))
+        self.descriptionInputBox.setPlaceholderText(_translate("MainWindow", "NFT Description..."))
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
         self.actionDocs.setText(_translate("MainWindow", "Help Document"))
-import test_rc
 
 
 if __name__ == "__main__":

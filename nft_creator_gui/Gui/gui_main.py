@@ -11,7 +11,6 @@ from cartoon_style import cartoonify_image
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
 
 class Main(baseClass):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -22,6 +21,7 @@ class Main(baseClass):
         self.browse_button()
         self.stage_button()
         self.delete_button()
+        self.input_boxes()
         self.show()
 
     def left_label(self):
@@ -29,7 +29,7 @@ class Main(baseClass):
         self.border_css = "border: 1.5px dashed #F83212;"
         self.border_css_green = "border: 1.5px solid #7CF3A0;"
         self.font_size = "font-size: 22px;"
-        self.font_family = "font-family: Candara;"
+        self.font_family = "font-family: Courier;"
         # self.font_weight = "font-weight: bold;"
 
         self.left_label = self.ui.leftLabel
@@ -56,23 +56,34 @@ class Main(baseClass):
     def browse_image(self):
         #Change starting path location to varible name to something else later on
         path_delete_later = "C:/Users/Forre/Desktop/GuiPhotos/cool.jpg"
-        fname = qtw.QFileDialog.getOpenFileName(self, "Open File", path_delete_later, "Image files (*jpg *.png)")
+        fname = qtw.QFileDialog.getOpenFileName(
+            self, "Open File", path_delete_later, "Image files (*jpg *.png)"
+        )
         imagePath = fname[0]
-        with open("ImagePathTextFiles/image_path.txt", "w") as f:
-            f.write(imagePath)
-        print(f"file path is: {imagePath}")
-        image = QPixmap(imagePath)
-        self.left_label.setPixmap(image)
-        self.left_label.setStyleSheet(
-            self.background_color_css + self.border_css_green + self.font_family + 
+        #If user opens the browse dialogue but does not select anything, keep the same css styling. 
+        #Otherwise, set the pixmap with selected image.
+        if imagePath != "":
+            with open("TextFiles/image_path.txt", "w") as f:
+                f.write(imagePath)
+            print(f"file path is: {imagePath}")
+            image = QPixmap(imagePath)
+            self.left_label.setPixmap(image)
+            self.left_label.setStyleSheet(
+                self.background_color_css + self.border_css_green + self.font_family + 
+                self.font_size 
+            )
+            print("  Image set!")
+        else:
+            self.left_label.setStyleSheet(
+            self.background_color_css + self.border_css + self.font_family + 
             self.font_size 
         )
-        print("Image set!")
+            print("  No image was selected")
 
     def stage_button(self):
         self.stage_button = self.ui.stageButton
         self.stage_button.clicked.connect(self.checked_checkbox)
-        print("Stage button working")
+        print("  Stage button working")
 
 #Applies the image style that the user specifes. The check box determines which
 #Opencv style to run.
@@ -97,15 +108,15 @@ class Main(baseClass):
         self.right_label.setPixmap(self.styled_image)
         #Writes the file path of the edited image to txt folder
         #to be read by script to create URI 
-        with open("ImagePathTextFiles/edited_image_result_path.txt", "w") as f:
+        with open("TextFiles/edited_image_result_path.txt", "w") as f:
             f.write(self.styled_image_path)
-        print("Image passed to right image container")
+        print("  Image passed to right image container")
 
         
     def delete_button(self):
         self.delete_button = self.ui.deleteButton
         self.delete_button.clicked.connect(self.remove_image_from_minting_area)
-        print("Delete button working")
+        print("  Delete button working")
     
     def remove_image_from_minting_area(self):
         self.right_label.clear()
@@ -114,6 +125,14 @@ class Main(baseClass):
             self.font_size 
         )
         self.right_label.setText("Please stage an image \nin order to mint it")
+
+
+    def input_boxes(self):
+        self.name_input_box = self.ui.nameInputBox
+        self.description_input_box = self.ui.descriptionInputBox
+        pass
+
+
 
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)
