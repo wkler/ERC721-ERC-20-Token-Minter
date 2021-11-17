@@ -22,6 +22,7 @@ class Main(baseClass):
         self.stage_button()
         self.delete_button()
         self.input_boxes()
+        self.mint_button()
         self.show()
 
     def left_label(self):
@@ -131,7 +132,13 @@ class Main(baseClass):
         self.name_input_box = self.ui.nameInputBox
         self.description_input_box = self.ui.descriptionInputBox
         pass
+    
+    def mint_button(self):
+        self.mint_button = self.ui.mintButton
+        self.mint_button.clicked.connect(self.create_nft)
 
+    def create_nft(self):
+        print("  Mint Button worked!")
 
 
 if __name__ == '__main__':
