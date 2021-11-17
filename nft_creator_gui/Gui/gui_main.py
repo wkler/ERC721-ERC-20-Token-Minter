@@ -82,8 +82,8 @@ class Main(baseClass):
             print("  No image was selected")
 
     def stage_button(self):
-        self.stage_button = self.ui.stageButton
-        self.stage_button.clicked.connect(self.checked_checkbox)
+        self.stage_btn = self.ui.stageButton
+        self.stage_btn.clicked.connect(self.checked_checkbox)
         print("  Stage button working")
 
 #Applies the image style that the user specifes. The check box determines which
@@ -115,8 +115,8 @@ class Main(baseClass):
 
         
     def delete_button(self):
-        self.delete_button = self.ui.deleteButton
-        self.delete_button.clicked.connect(self.remove_image_from_minting_area)
+        self.delete_btn = self.ui.deleteButton
+        self.delete_btn.clicked.connect(self.remove_image_from_minting_area)
         print("  Delete button working")
     
     def remove_image_from_minting_area(self):
@@ -134,8 +134,8 @@ class Main(baseClass):
         pass
     
     def mint_button(self):
-        self.mint_button = self.ui.mintButton
-        self.mint_button.clicked.connect(self.create_nft)
+        self.mint_btn = self.ui.mintButton
+        self.mint_btn.clicked.connect(self.create_nft)
 
     def create_nft(self):
         print("  Mint Button worked!")
