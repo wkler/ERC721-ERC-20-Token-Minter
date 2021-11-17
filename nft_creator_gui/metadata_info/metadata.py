@@ -1,4 +1,4 @@
-metadata_template = {
+metadata_dictionary = {
     "name": "",
     "description": "",
     "image": ""
