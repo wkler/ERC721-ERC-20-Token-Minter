@@ -129,7 +129,7 @@ class Main(baseClass):
     def mint_button(self):
         self.mint_btn = self.ui.mintButton
         self.mint_btn.clicked.connect(self.create_nft)
-
+        
     def create_nft(self):
         if self.current_state == self.POSSIBLE_STATES[2]:
             self.name_input_box = self.ui.nameInputBox
