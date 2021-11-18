@@ -14,7 +14,7 @@ def get_account():
         return accounts.add(config["wallets"]["from_key"])
 
 #Reads the file path of image to be minted
-def assign():
+def create_nft_metadata():
     with open("nft_creator_gui/TextFiles/nft_name.txt", "r") as name_metadata:
         name = name_metadata.read()
     with open("nft_creator_gui/TextFiles/nft_description.txt", "r") as description_metadata:
@@ -25,4 +25,4 @@ def assign():
     print(metadata_dictionary)
 
 def main():
-    assign()
+    create_nft_metadata()
