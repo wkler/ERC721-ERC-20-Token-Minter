@@ -81,10 +81,6 @@ class Main(baseClass):
             print(f"  current state of Gui is {self.current_state}")
             print("  Image set!")
         else:
-            self.left_label.setStyleSheet(
-            self.background_color_css + self.border_css + self.font_family + 
-            self.font_size 
-        )
             print("  No image was selected")
 
     def stage_button(self):
