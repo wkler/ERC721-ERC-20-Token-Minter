@@ -8,14 +8,10 @@ from PyQt5.QtGui import QPixmap
 from adaptive_threshold import adaptive_threshold_style
 from cartoon_style import cartoonify_image
 
-
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
-
 class Main(baseClass):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
-
         self.POSSIBLE_STATES = ["Home", "Selected", "Staging", "Minting"]
         self.current_state = self.POSSIBLE_STATES[0]
         self.ui = Ui_MainWindow()
@@ -26,7 +22,6 @@ class Main(baseClass):
         self.delete_button()
         self.mint_button()
         self.show()
-
         print(f"  Current state of Gui is {self.current_state}")
     #Lays the initial styles for the QLabels
     def labels(self):
@@ -60,7 +55,7 @@ class Main(baseClass):
 
     def browse_image(self):
         #Change starting path location to varible name to something else later on
-        path_delete_later = "C:/Users/Forre/Desktop/GuiPhotos/cool.jpg"
+        path_delete_later = "C:/Users/Forre/Desktop/GuiPhotos"
         fname = qtw.QFileDialog.getOpenFileName(
             self, "Open File", path_delete_later, "Image files (*jpg *.png)"
         )
@@ -87,7 +82,6 @@ class Main(baseClass):
         self.stage_btn = self.ui.stageButton
         self.stage_btn.clicked.connect(self.checked_checkbox)
         print("  Stage button working")
-
 #Applies the image style that the user specifes. The check box determines which
 #Opencv style to give the image
     def checked_checkbox(self):
