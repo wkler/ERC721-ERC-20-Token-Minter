@@ -4,8 +4,10 @@ compiler:
   solc:
     remappings: 
       - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.4.0'
-netwoks:
+networks:
   defualt: development
+  rinkeby:
+    IDizzler_token: '0xD716e4891b715e1725e7384A24C63BFDe1865a98'
 dotenv: .env
 wallets:
   from_key: ${PRIVATE_KEY}

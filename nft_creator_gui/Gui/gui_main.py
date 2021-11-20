@@ -140,6 +140,9 @@ class Main(baseClass):
             with open("TextFiles/nft_description.txt", "w") as description_text_file:
                 description_text_file.write(self.description_input_box.text())
 
+    def mint_tokens(self):
+
+
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)
     start = Main()

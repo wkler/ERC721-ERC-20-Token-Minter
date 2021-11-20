@@ -1,17 +1,15 @@
 import sys
 sys.path.append("nft_creator_gui/metadata_info")
-from metadata import metadata_dictionary
+# from metadata import metadata_dictionary
 from brownie import accounts, network, config, NftFactory
 
 LOCAL_BLOCKCHAIN_ENVIROMENTS = ["development", "mainnet-fork"]
-TEST_BLOCKCHAIN_ENVIRONMENTS = ["rinkeby"]
 
 #gets account based on what network contract is deployed to
 def get_account():
     if network.show_active() in LOCAL_BLOCKCHAIN_ENVIROMENTS:
         return accounts[0]
-    if network.show_active() in TEST_BLOCKCHAIN_ENVIRONMENTS:
-        return accounts.add(config["wallets"]["from_key"])
+    return accounts.add(config["wallets"]["from_key"])
 
 #Reads the file path of image to be minted
 def create_nft_metadata():
