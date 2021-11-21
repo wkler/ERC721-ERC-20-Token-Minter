@@ -1,13 +1,18 @@
 dependencies:
   - OpenZeppelin/openzeppelin-contracts@3.4.0
+  - smartcontractkit/chainlink-brownie-contracts@0.2.2
 compiler:
   solc:
     remappings: 
       - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.4.0'
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.2.2'
 networks:
   defualt: development
   rinkeby:
-    IDizzler_token: '0xD716e4891b715e1725e7384A24C63BFDe1865a98'
+    link_token_addr: '0x01BE23585060835E02B77ef475b0Cc51aA1e0709'
+    vrf_coordinator_addr: '0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B'
+    key_hash: '0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311'
+    link_fee: 100000000000000000
 dotenv: .env
 wallets:
   from_key: ${PRIVATE_KEY}

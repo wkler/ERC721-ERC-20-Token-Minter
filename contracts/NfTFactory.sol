@@ -1,11 +1,12 @@
+//SPDX-License-Identifie: MIT
 pragma solidity ^0.7.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-// import "@openzeppelin/contracts/access/Ownable.sol";
-// import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract NftFactory is ERC721 {
     uint256 public tokenCounter;
+    address public tokenAddress;
     constructor(
         string memory _name, 
         string memory _symbol
@@ -20,6 +21,8 @@ contract NftFactory is ERC721 {
         _safeMint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
         tokenCounter += 1;
+
         return newItemId;
     }
+
 }
