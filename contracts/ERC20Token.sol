@@ -1,18 +1,18 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@chainlink/contracts/src/v0.7/VRFConsumerBase.sol";
+import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
+
 
 contract ERC20Token is ERC20, VRFConsumerBase, Ownable {
     address vrfCoordinator;
     bytes32 keyhash;
     address linkToken;
     uint256 fee;
-    uint256 randomResult;
+    uint256 public randomResult;
     // address[] public guiMinters;  
-    mapping(address => bool) public isMinter;
     event RandomNumberFulfillment(bytes32 requestId);
     constructor(
         string memory _name,
@@ -23,10 +23,10 @@ contract ERC20Token is ERC20, VRFConsumerBase, Ownable {
         uint256 _fee
     ) 
     VRFConsumerBase(
-        vrfCoordinator,
-        linkToken
+        _vrfCoordinator,
+        _linkToken
     ) 
-    ERC20(_name, _symbol)
+    ERC20(_name, _symbol) 
     {
         vrfCoordinator = _vrfCoordinator;
         linkToken = _linkToken;
@@ -34,7 +34,7 @@ contract ERC20Token is ERC20, VRFConsumerBase, Ownable {
         fee = _fee;
     }
 
-    function getRandomNumber() private onlyMinter() returns(bytes32 requestId) {
+    function getRandomNumber() public returns(bytes32 requestId) {
         require(LINK.balanceOf(address(this)) >= fee, "Please fund contract with Link");
         return requestRandomness(keyhash, fee);
     }
@@ -42,12 +42,11 @@ contract ERC20Token is ERC20, VRFConsumerBase, Ownable {
     function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
         require(randomness > 0, "Randomness not returned");
         randomResult = (randomness % 15) + 1;
-        _mint(msg.sender, randomResult);
+        _mint(owner(), randomResult);
         emit RandomNumberFulfillment(requestId);
     }
 
-    modifier onlyMinter() {
-        require(isMinter[msg.sender] == true, "Has to be minter");
-        _;
+    function getLinkBalance() public view returns(uint256) {
+        return LINK.balanceOf(address(this));
     }
 }
