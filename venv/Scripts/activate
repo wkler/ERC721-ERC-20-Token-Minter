@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Forre\documents\NftAndTokenFactory\venv"
+VIRTUAL_ENV="C:\Users\Forre\Documents\NftAndTokenFactory\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
