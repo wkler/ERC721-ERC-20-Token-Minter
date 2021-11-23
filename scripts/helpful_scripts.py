@@ -1,6 +1,5 @@
 import sys
 sys.path.append("nft_creator_gui/metadata_info")
-# from metadata import metadata_dictionary
 from brownie import accounts, network, config
 
 LOCAL_BLOCKCHAIN_ENVIROMENTS = ["development", "mainnet-fork"]

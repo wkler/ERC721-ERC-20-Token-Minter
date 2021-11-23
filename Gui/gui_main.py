@@ -1,21 +1,18 @@
 import os
 import sys
-import json
 sys.path.append("contracts")
 sys.path.append("scripts")
 sys.path.append("ImageEditor")
-sys.path.append("build")
+from dotenv import load_dotenv
+load_dotenv()
+from PyQt5 import uic
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 from PyQt5 import QtGui as qtg 
-from PyQt5 import uic
 from PyQt5.QtGui import QPixmap
 from adaptive_threshold import adaptive_threshold_style
 from cartoon_style import cartoonify_image
-from dotenv import load_dotenv
-from mint_erc20_tokens import main
-load_dotenv()
-
+from mint_btn_functionality import main
 
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
 class Main(baseClass):
@@ -57,7 +54,8 @@ class Main(baseClass):
             )
             self.right_label.setAlignment(qtc.Qt.AlignCenter)
             self.right_label.setText("Please stage an image \nin order to mint it")
-
+            
+    #Connects click action to browse image functionality
     def browse_button(self):
         self.browse_btn = self.ui.browseButton
         self.browse_btn.clicked.connect(self.browse_image)
@@ -87,6 +85,7 @@ class Main(baseClass):
         else:
             print("  No image was selected")
 
+    #Connect state button to checkbox functionality
     def stage_button(self):
         self.stage_btn = self.ui.stageButton
         self.stage_btn.clicked.connect(self.checked_checkbox)
@@ -97,11 +96,11 @@ class Main(baseClass):
         self.adaptive_TH_style_checkbox = self.ui.styleOneCheckBox
         self.cartoon_style_checkbox = self.ui.styleTwoCheckBox
 
+        #Applies style to selected image depening on which checkbox is checked
         if self.adaptive_TH_style_checkbox.isChecked():
             adaptive_threshold_style()
             self.pass_image_to_minting_area()
             self.right_label.setStyleSheet(self.border_css_green)
-
         if self.cartoon_style_checkbox.isChecked():
             cartoonify_image()
             self.pass_image_to_minting_area()
@@ -153,7 +152,6 @@ class Main(baseClass):
     def mint_tokens(self):
         if self.current_state == self.STATES[2]:
             main()
-
 
 app = qtw.QApplication(sys.argv)
 start = Main()
