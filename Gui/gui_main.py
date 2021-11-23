@@ -13,18 +13,8 @@ from PyQt5.QtGui import QPixmap
 from adaptive_threshold import adaptive_threshold_style
 from cartoon_style import cartoonify_image
 from dotenv import load_dotenv
+from mint_erc20_tokens import main
 load_dotenv()
-
-from web3 import Web3
-from brownie import *
-from brownie.network.contract import (
-    Contract,
-    ContractContainer,
-    InterfaceContainer,
-    ProjectContract,
-)
-
-
 
 
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
@@ -148,7 +138,7 @@ class Main(baseClass):
     def mint_button(self):
         self.mint_btn = self.ui.mintButton
         self.mint_btn.clicked.connect(self.create_nft)
-        # self.mint_btn.clicked.connect(self.mint_tokens)
+        self.mint_btn.clicked.connect(self.mint_tokens)
         
     def create_nft(self):
         if self.current_state == self.STATES[2]:
@@ -160,36 +150,9 @@ class Main(baseClass):
             with open("TextFiles/nft_description.txt", "w") as description_text_file:
                 description_text_file.write(self.description_input_box.text())
 
-    # def mint_tokens(self):
-    #     if self.current_state == self.STATES[2]:
-
-
-            # w3 = Web3(Web3.HTTPProvider(os.getenv("RINKEBY_RPC_URL")))
-            # chain_id = 4
-            # my_address = "0x42A7b811d096Cba5b3bbf346361106bDe275C8d7"
-            # private_key = os.getenv("PRIVATE_KEY")
-            # nonce = w3.eth.getTransactionCount(my_address)
-            # print(nonce)
-            # token_address = "0x9e306f6c4acBe2D5856D0876A9d7AC8e9444AB34"
-
-            # with open("build/contracts/ERC20Token.json", "r") as abi_file:
-            #     abi_info_json = json.load(abi_file)
-            # token_abi = abi_info_json["abi"]
-            
-            # contract_instance = w3.eth.contract(address=token_address, abi=token_abi)
-
-            # get_rand = contract_instance.functions.getRandomNumber().buildTransaction(
-            #     {"chainId": chain_id, "from": my_address, "nonce": nonce + 1}
-            # )
-            # signed_get_rand_txn = w3.eth.account.sign_transaction(
-            #     get_rand, private_key=private_key
-            # )
-
-            # signed_tx_hash = w3.eth.send_raw_transaction(signed_get_rand_txn.rawTransaction)
-            # print("Getting random number")
-            # tx_receipt = w3.eth.wait_for_transaction_receipt(signed_tx_hash)
-
-
+    def mint_tokens(self):
+        if self.current_state == self.STATES[2]:
+            main()
 
 
 app = qtw.QApplication(sys.argv)
