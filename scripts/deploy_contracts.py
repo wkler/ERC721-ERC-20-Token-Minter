@@ -1,6 +1,6 @@
+#To be used when initially deploying contracts
 from brownie import ERC20Token, config, network
 from scripts.helpful_scripts import get_account, LOCAL_BLOCKCHAIN_ENVIROMENTS
-
 #Verifiys contracts on etherscan automatically.  
 publish_source = (
     True if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIROMENTS else False
@@ -10,7 +10,6 @@ publish_source = (
 #     account = get_account()
 #     nft_factory = NftFactory.deploy("Test", "TST", {"from": account}, publish_source=True)
 #     print(f"  NftFactory deployed to: {account}")
-
 
 def deploy_token():
     account = get_account() 

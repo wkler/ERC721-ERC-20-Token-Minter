@@ -1,7 +1,6 @@
 from brownie import ERC20Token, config, network, project
 from scripts.helpful_scripts import get_account
 from Gui.gui_main import *
-
 # Creates random amount of tokens. The number of tokens created
 # is based on the random number returned from VRFCoordinator.
 # This number will always be from 1 - 15 
