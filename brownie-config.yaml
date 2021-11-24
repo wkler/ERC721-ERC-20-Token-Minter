@@ -3,12 +3,12 @@ dependencies:
   - smartcontractkit/chainlink-brownie-contracts@0.2.2
 compiler:
   solc:
+    version: "0.8.10"
     remappings: 
       - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.3.3'
       - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.2.2'
 dotenv: .env
 networks:
-  defualt: development
   rinkeby:
     link_token_address: '0x01BE23585060835E02B77ef475b0Cc51aA1e0709'
     vrf_coordinator_address: '0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B'
