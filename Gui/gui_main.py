@@ -3,6 +3,10 @@ import sys
 sys.path.append("contracts")
 sys.path.append("scripts")
 sys.path.append("ImageEditor")
+sys.path.append("metadata_info")
+import json
+from create_nft import create_nft_metadata
+from metadata_template import nft_metadata
 from dotenv import load_dotenv
 load_dotenv()
 from PyQt5 import uic
@@ -12,7 +16,7 @@ from PyQt5 import QtGui as qtg
 from PyQt5.QtGui import QPixmap
 from adaptive_threshold import adaptive_threshold_style
 from cartoon_style import cartoonify_image
-from mint_btn_functionality import main
+# from mint_btn_functionality import main
 
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
 class Main(baseClass):
@@ -109,7 +113,7 @@ class Main(baseClass):
     def pass_image_to_minting_area(self):
         if self.current_state == self.STATES[1]:
             #For now this is just the image but a path can be added later.
-            self.styled_image_path = "stylized.jpg"
+            self.styled_image_path = "stylized.png"
             self.styled_image = QPixmap(self.styled_image_path)
             self.right_label.setPixmap(self.styled_image)
             #Writes the file path of the edited image to txt folder
@@ -137,21 +141,22 @@ class Main(baseClass):
     def mint_button(self):
         self.mint_btn = self.ui.mintButton
         self.mint_btn.clicked.connect(self.create_nft)
-        self.mint_btn.clicked.connect(self.mint_tokens)
+        # self.mint_btn.clicked.connect(self.mint_tokens)
         
     def create_nft(self):
         if self.current_state == self.STATES[2]:
             self.name_input_box = self.ui.nameInputBox
-            with open("TextFiles/nft_name.txt", "w") as name_text_file:
-                name_text_file.write(self.name_input_box.text())
-
             self.description_input_box = self.ui.descriptionInputBox
-            with open("TextFiles/nft_description.txt", "w") as description_text_file:
-                description_text_file.write(self.description_input_box.text())
-
-    def mint_tokens(self):
-        if self.current_state == self.STATES[2]:
-            main()
+            #Updates python dictionary to be dumped into json file
+            nft_metadata["name"] = self.name_input_box.text()
+            nft_metadata["description"] = self.description_input_box.text()
+            with open("metadata_info/metadata.json", "w") as updated_metadata_name_and_description:
+                json.dump(nft_metadata, updated_metadata_name_and_description, indent=2)
+            create_nft_metadata()
+            
+    # def mint_tokens(self):
+    #     if self.current_state == self.STATES[2]:
+    #         main()
 
 app = qtw.QApplication(sys.argv)
 start = Main()

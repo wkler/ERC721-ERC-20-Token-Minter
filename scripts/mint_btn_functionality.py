@@ -1,5 +1,5 @@
 from brownie import ERC20Token, config, network, project
-from scripts.helpful_scripts import get_account
+from scripts.utils import get_account
 from Gui.gui_main import *
 # Creates random amount of tokens. The number of tokens created
 # is based on the random number returned from VRFCoordinator.
@@ -8,9 +8,9 @@ from Gui.gui_main import *
 def mint_tokens():
     account = get_account()
     token_contract = ERC20Token[-1]
-    print(f"  {token_contract}")
+    print(f"  Minting tokens form {token_contract}")
     tx = token_contract.getRandomNumber({"from": account})
-    print(f"  VRF called")
+    print(f"  Chainlink VRF called\nVerifying random number...")
 
 # Returns the current total supply of tokens
 def get_total_supply():
@@ -29,5 +29,5 @@ def get_random_result():
 # Invokes the above functions 
 def main():
     mint_tokens()
-#    get_total_supply()
-#    get_random_result()
+    #get_total_supply()
+    #get_random_result()

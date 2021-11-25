@@ -1,6 +1,6 @@
 import sys
 sys.path.append("nft_creator_gui/metadata_info")
-from brownie import accounts, network, config
+from brownie import ERC20Token, accounts, network, config
 
 LOCAL_BLOCKCHAIN_ENVIROMENTS = ["development", "mainnet-fork"]
 
@@ -21,5 +21,10 @@ def create_nft_metadata():
     metadata_dictionary["description"] = description
     print(metadata_dictionary)
 
+def get_latest_token_address():
+    contract_instance = ERC20Token[-1]
+    print(f"  Token address is: {contract_instance.address}")
+
 def main():
-    create_nft_metadata()
+    get_latest_token_address()
+    # create_nft_metadata()

@@ -3,7 +3,7 @@ import requests
 from pathlib import Path
 
 PINATA_BASE_URL = "https://app.pinata.cloud/"
-filepath = "./nft_creator_gui/TextFiles/edited_image_result_path.txt"
+filepath = "./stylized.png"
 filename = filepath.split("/")[-1]
 endpoint = "pinning/pinFileToIPFS"
 
