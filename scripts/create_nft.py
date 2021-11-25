@@ -1,19 +1,39 @@
+import sys
+sys.path.append("metadata_info")
+import json
+import requests
+from metadata_template import nft_metadata
 from brownie import NftFactory
-from scripts.helpful_scripts import get_account, network, config
+from scripts.utils import get_account, network, config
+from metadata_template import nft_metadata
 
-def create_nft():
+def create_nft_metadata():
+    filepath = "./stylized.png"
+    with open(filepath, "rb") as styled_image_path:
+        image_binary = styled_image_path.read()
+        ipfs_url = "http://127.0.0.1:5001"
+        endpoint = "/api/v0/add"
+        response = requests.post(ipfs_url + endpoint, files={"file": image_binary})
+        ipfs_hash = response.json()["Hash"]
+        filename = filepath.split("/")[-1:][0]
+        image_uri = f"https://ipfs.io/ipfs/{ipfs_hash}?filename={filename}"
+    with open("metadata_info/metadata.json", "w") as updated_metadata_image:
+        nft_metadata["image"] = image_uri
+        json.dump(nft_metadata, updated_metadata_image, indent=2)
+        print(image_uri)
+    with open("metadata_info/metadata.json", "r") as metadata_read:
+        image_uri_json = metadata_read.read()
+        mint_nft()
+
+def mint_nft(image_uri_json):
     account = get_account()
     nft_factory = NftFactory[-1]
     tx = nft_factory.createNFT(
-        "https://gateway.ipfs.io/ipns/k51qzi5uqu5djlfyyj2hi192fwqindfrz01pkqhb7th7m77qwmrhvqx9txgt4l",
+        image_uri_json,
         {"from": account}
     )
-    tx.wait(1)
-    print(tx)
-    print("  If you are reading this then this might have worked!")
-    return nft_factory.tokenCounter()
-
-
+    print(f"  This is the {nft_factory.tokenCounter()}th collectable")
 
 def main():
-    create_nft()
+    create_nft_metadata()
+    # create_nft()
