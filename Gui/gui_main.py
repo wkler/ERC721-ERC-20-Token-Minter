@@ -16,7 +16,7 @@ from PyQt5 import QtGui as qtg
 from PyQt5.QtGui import QPixmap
 from adaptive_threshold import adaptive_threshold_style
 from cartoon_style import cartoonify_image
-# from mint_btn_functionality import main
+from mint_btn_functionality import main
 
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
 class Main(baseClass):
@@ -152,7 +152,7 @@ class Main(baseClass):
             nft_metadata["description"] = self.description_input_box.text()
             with open("metadata_info/metadata.json", "w") as updated_metadata_name_and_description:
                 json.dump(nft_metadata, updated_metadata_name_and_description, indent=2)
-            create_nft_metadata()
+            main()
             
     # def mint_tokens(self):
     #     if self.current_state == self.STATES[2]:
