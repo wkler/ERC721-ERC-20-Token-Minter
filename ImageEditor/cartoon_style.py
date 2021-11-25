@@ -13,8 +13,8 @@ def cartoonify_image():
     adaptive_threshold = cv.adaptiveThreshold(
         convert_img_to_gray, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 7, 7
     )
-    dst = cv.edgePreservingFilter(image, flags=2, sigma_s=64, sigma_r=0.25)
+    dst = cv.edgePreservingFilter(image, flags=2, sigma_s=64, sigma_r=0.5)
     complete_style = cv.bitwise_and(dst, dst, mask=adaptive_threshold)
 
-    new_style_filename = "stylized.jpg"
+    new_style_filename = "stylized.png"
     cv.imwrite(new_style_filename, complete_style)
