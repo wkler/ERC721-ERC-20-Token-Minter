@@ -11,5 +11,5 @@ def adaptive_threshold_style():
     adaptive_thresh = cv.adaptiveThreshold(gray_image, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.
     THRESH_BINARY, 15, 7)
 
-    new_style_filename = "stylized.jpg"
+    new_style_filename = "stylized.png"
     cv.imwrite(new_style_filename, adaptive_thresh)
