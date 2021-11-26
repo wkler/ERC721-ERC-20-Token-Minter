@@ -5,7 +5,7 @@ sys.path.append("scripts")
 sys.path.append("ImageEditor")
 sys.path.append("metadata_info")
 import json
-from create_nft import create_nft_metadata
+from upload_image_to_ipfs import ipfs_upload
 from metadata_template import nft_metadata
 from dotenv import load_dotenv
 load_dotenv()
