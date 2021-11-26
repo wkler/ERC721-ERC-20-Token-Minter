@@ -32,4 +32,4 @@ def deploy_token():
 
 def main():
     deploy_nft()
-    # deploy_token()
+    deploy_token()
