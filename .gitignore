@@ -4,7 +4,7 @@ __pycache__
 .hypothesis/
 build/
 reports/
-venv
+venv/
 NOTES.txt
 computerVisionNotes.txt
 stylized.jpg
