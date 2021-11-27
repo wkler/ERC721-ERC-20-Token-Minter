@@ -25,10 +25,9 @@ def create_nft_metadata():
 
 def get_latest_info_on_contracts():
     token_contract = ERC20Token[-1]
-    nft_contract = NftFactory[-]
+    nft_contract = NftFactory[-1]
     print(f"  Token address is: {contract_instance.address}")
     print(f"  NFT Factory address is: {nft_contract.address}")
-
 
 
 def main():
