@@ -1,3 +1,5 @@
+#This file contains a function that calls scripts in an ordered way when the "MINT" button is called on PATH/gui_main.py
+#The existance of this file is due to the critical nature in which the scripts are ran 
 import sys
 sys.path.append("metadata_info")
 import json
@@ -27,4 +29,3 @@ def main():
     mint_erc20_tokens()
     ipfs_upload()
     upload_to_pinata()
-    # mint_nft()
