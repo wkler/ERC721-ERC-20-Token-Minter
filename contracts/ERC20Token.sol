@@ -1,10 +1,12 @@
+//For basic usage, this file does not need to be edited
+//To name your token, edit the "deploy_contracts.py" file which can be found in the scripts folder
+
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
-
 
 contract ERC20Token is ERC20, VRFConsumerBase, Ownable {
     address vrfCoordinator;
@@ -13,6 +15,7 @@ contract ERC20Token is ERC20, VRFConsumerBase, Ownable {
     uint256 fee;
     uint256 public randomResult;
     event RandomNumberFulfillment(bytes32 requestId);
+    //See deploy_contracts.py for what these parameters are shipping with
     constructor(
         string memory _name,
         string memory _symbol,
@@ -35,7 +38,7 @@ contract ERC20Token is ERC20, VRFConsumerBase, Ownable {
         fee = _fee;
     }
 
-    function getRandomNumber() public onlyOwner() returns(bytes32 requestId) {
+    function mintTokens() public onlyOwner() returns(bytes32 requestId) {
         require(LINK.balanceOf(address(this)) >= fee, "Please fund contract with Link");
         return requestRandomness(keyhash, fee);
     }
