@@ -8,9 +8,9 @@ https://chain.link/hackathon*
 
 # How to use
 There are a handful of required setup steps for this project.
-1) You will need to install and create an account on MetaMask. You will also need your account's private key and be connected to the Rinkeby network. MetaMask documentation can be found at: https://metamask.io/faqs.html
-Once you have MetaMask installed and connected to the Rinkeby network, it will need some test ETH and test LINK. You can get some of each here: https://faucets.chain.link/rinkeby
-Just make sure you select "Ethereum Rinkeby" under the "Network" tab.
+1) You will need to install and create an account on MetaMask. You will also need your account's private key and be connected to the Rinkeby network. MetaMask documentation can be found at: https://metamask.io/faqs.html.
+Once you have MetaMask installed and connected to the Rinkeby network, it will need some test ETH and test LINK. You can get some of each here: https://faucets.chain.link/rinkeby.
+Make sure you select "Ethereum Rinkeby" under the "Network" tab.
 *In order to insure security for your real crypto, only use this wallet for testing purposes*
 
 2) Create free Infura account https://infura.io/. Obtain it's Rinkeby API project ID. Documentation can be found at:
