@@ -65,10 +65,10 @@ class Main(baseClass):
         self.browse_btn.clicked.connect(self.browse_image)
 
     def browse_image(self):
-        #Change starting path location to varible name to something else later on
-        path_delete_later = "C:/Users/Forre/Desktop/GuiPhotos"
+        # Opens file explorer to the Users directory
+        starting_path = "C:/Users"
         fname = qtw.QFileDialog.getOpenFileName(
-            self, "Open File", path_delete_later, "Image files (*jpg *.png)"
+            self, "Open File", starting_path, "Image files (*jpg *.png)"
         )
         imagePath = fname[0]
         #If user opens the browse dialogue but does not select anything, keep the same css styling. 
