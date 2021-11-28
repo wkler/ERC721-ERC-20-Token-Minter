@@ -83,6 +83,6 @@ Blockchains can take time. If you are not seeing your NFT or tokens immedietly, 
 ## Congragulations. You've done it!
 
 ## Project workflow:<br>
-![](ReadmePhotos/project_workflow.png)
+![](ReadmePhotos/project_workflow.jpg)
 
 
