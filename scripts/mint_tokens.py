@@ -7,6 +7,6 @@ from scripts.utils import get_account
 def mint_erc20_tokens():
     account = get_account()
     token_contract = ERC20Token[-1]
-    print(f"  Minting tokens form {token_contract}")
+    print(f"  Minting tokens from {token_contract}")
     tx = token_contract.mintTokens({"from": account})
     print(f"  Chainlink VRF called\nVerifying random number...\n")

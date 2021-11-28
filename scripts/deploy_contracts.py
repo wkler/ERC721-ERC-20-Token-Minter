@@ -15,8 +15,8 @@ publish_source = (
 def deploy_nft():
     account = get_account()
     nft_factory = NftFactory.deploy(
-        "Test", 
-        "TST", 
+        "MyFactoryName", 
+        "FACTORYSYMBOL", 
         {"from": account}, 
         publish_source=publish_source
     )
@@ -25,13 +25,13 @@ def deploy_nft():
 def deploy_token():
     account = get_account() 
     token_contract = ERC20Token.deploy(
-        "NameHere",
-        "SymbolHere",
+        "MyTokenName",
+        "TOKENSYMBOL",
         config["networks"][network.show_active()]["vrf_coordinator_address"],
         config["networks"][network.show_active()]["link_token_address"],
         config["networks"][network.show_active()]["key_hash"],
         config["networks"][network.show_active()]["link_fee"],
-        10000000000000000000000,
+        1000000000000000000000,
         {"from": account},
         publish_source=publish_source
     )

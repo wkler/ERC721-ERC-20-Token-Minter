@@ -26,6 +26,5 @@ def get_random_result():
     print(f"  Random number returned: {get_random_number}")
 
 def main():
-    mint_erc20_tokens()
     ipfs_upload()
     upload_to_pinata()

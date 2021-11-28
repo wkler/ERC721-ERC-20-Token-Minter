@@ -20,6 +20,6 @@ def ipfs_upload():
     with open("metadata_info/metadata.json", "w") as updated_metadata_image:
         nft_metadata["image"] = image_uri
         json.dump(nft_metadata, updated_metadata_image, indent=2)
-        print(image_uri)
+        return image_uri
 
 

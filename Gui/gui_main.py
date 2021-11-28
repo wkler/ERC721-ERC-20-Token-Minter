@@ -17,6 +17,7 @@ from PyQt5.QtGui import QPixmap
 from adaptive_threshold import adaptive_threshold_style
 from cartoon_style import cartoonify_image
 from mint_btn_functionality import main
+from mint_tokens import mint_erc20_tokens
 
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
 class Main(baseClass):
@@ -141,7 +142,7 @@ class Main(baseClass):
     def mint_button(self):
         self.mint_btn = self.ui.mintButton
         self.mint_btn.clicked.connect(self.create_nft)
-        # self.mint_btn.clicked.connect(self.mint_tokens)
+        self.mint_btn.clicked.connect(self.mint_tokens)
         
     def create_nft(self):
         if self.current_state == self.STATES[2]:
@@ -154,9 +155,9 @@ class Main(baseClass):
                 json.dump(nft_metadata, updated_metadata_name_and_description, indent=2)
             main()
             
-    # def mint_tokens(self):
-    #     if self.current_state == self.STATES[2]:
-    #         main()
+    def mint_tokens(self):
+        if self.current_state == self.STATES[2]:
+            mint_erc20_tokens()
 
 app = qtw.QApplication(sys.argv)
 start = Main()
