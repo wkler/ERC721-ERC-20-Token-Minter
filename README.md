@@ -70,7 +70,7 @@ brownie run PATH/TO/start_gui.py --network rinkeby
 17) If you followed the above steps correctly, your console should look something like this:
 ![](ReadmePhotos/mint_success.PNG)
 
-A successfull transaction means:
+A successfull transaction means:<br>
 You can view your NFT at https://testnets.opensea.io/account (make sure you are connected to the OpenSea rinkeby testnet).<br>
 Your wallet gains from 1 and 15 ERC-20 Tokens from the contract you previously deployed.
 
