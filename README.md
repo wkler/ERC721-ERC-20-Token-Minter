@@ -38,6 +38,7 @@ pip install -r requirements.txt
 ![](ReadmePhotos/env_setup.PNG)
  
 10) Set name, symbol, and total supply for your ERC-20 token through the contract deployment script found at: <path/to/deploy_contracts.py>.The total supply will appear in you wallet once you have deployed the contracts and added the ERC-20 token address to your MetaMask wallet. For more info on importing your tokens into MetaMask, follow these steps: https://metamask.zendesk.com/hc/en-us/articles/360015489031-How-to-add-unlisted-tokens-custom-tokens-in-MetaMask
+
 To deploy smart contracts to the blockchain, run the command:
 ~~~
 brownie run PATH/TO/deploy_contracty.py --network rinkeby
