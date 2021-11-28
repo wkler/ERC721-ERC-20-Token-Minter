@@ -63,13 +63,15 @@ brownie run PATH/TO/start_gui.py --network rinkeby
 14) Click on "browse" to select image with extension .PNG or .JPG. Once image has loaded in, select a style.
 ![](ReadmePhotos/browse_btn.PNG)
 15) Select a style, then click "stage" to add image to the minting area. If you want to unstage an image, click "delete" to remove it.
+
 ![](ReadmePhotos/stage_actions.PNG)
 16) Give your NFT a name and description, then click "MINT" to start the minting process.
 ![](ReadmePhotos/mint_actions.PNG) 
 17) If you followed the above steps correctly, your console should look something like this:
 ![](ReadmePhotos/mint_success.PNG)
+
 A successfull transaction means:
-You can view your NFT at https://testnets.opensea.io/account(make sure you are connected to the OpenSea rinkeby testnet).
+You can view your NFT at https://testnets.opensea.io/account (make sure you are connected to the OpenSea rinkeby testnet).
 Your wallet gains from 1 and 15 ERC-20 Tokens from the contract you previously deployed.
 
 Blockchains can take time, so if you are not seeing your NFT or tokens immedietly, check back every couple mintutes.
