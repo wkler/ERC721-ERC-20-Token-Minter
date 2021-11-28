@@ -71,7 +71,7 @@ brownie run PATH/TO/start_gui.py --network rinkeby
 ![](ReadmePhotos/mint_success.PNG)
 
 A successfull transaction means:
-You can view your NFT at https://testnets.opensea.io/account (make sure you are connected to the OpenSea rinkeby testnet).
+You can view your NFT at https://testnets.opensea.io/account (make sure you are connected to the OpenSea rinkeby testnet).<br>
 Your wallet gains from 1 and 15 ERC-20 Tokens from the contract you previously deployed.
 
 Blockchains can take time, so if you are not seeing your NFT or tokens immedietly, check back every couple mintutes.
