@@ -64,7 +64,7 @@ brownie run PATH/TO/start_gui.py --network rinkeby
 ![](ReadmePhotos/browse_btn.PNG)
 15) Select a style, then click "stage" to add image to the minting area. If you want to unstage an image, click "delete" to remove it.
 
-![](ReadmePhotos/stage_actions.PNG)
+![](ReadmePhotos/stage_actions.PNG)<br>
 16) Give your NFT a name and description, then click "MINT" to start the minting process.
 ![](ReadmePhotos/mint_actions.PNG) 
 17) If you followed the above steps correctly, your console should look something like this:
