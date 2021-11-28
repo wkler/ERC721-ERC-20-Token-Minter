@@ -35,7 +35,7 @@ pip install -r requirements.txt
 8) Install IPFS Command-Line. Instructions can be found: https://docs.ipfs.io/install/command-line/#official-distributions
 
 9) Inside the root directory of your project, create a .env file. Add API keys as well as your MetaMask accounts private key to the .env file. 
- ADD SCREEN SHOT ON WHAT IT SHOULD LOOK LIKE
+![](Photos for Readme/envDemo.png)
  
 10) Set name, symbol, and total supply for your ERC-20 token through the contract deployment script found at: <path/to/deploy_contracts.py>.The total supply will appear in you wallet once you have deployed the contracts and added the ERC-20 token address to your MetaMask wallet. For more info on importing your tokens into MetaMask, follow these steps: https://metamask.zendesk.com/hc/en-us/articles/360015489031-How-to-add-unlisted-tokens-custom-tokens-in-MetaMask
 To deploy smart contracts to the blockchain, run the command:
