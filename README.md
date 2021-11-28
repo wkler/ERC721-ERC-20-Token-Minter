@@ -82,8 +82,7 @@ Your wallet gains from 1 and 15 ERC-20 Tokens from the contract you previously d
 Blockchains can take time. If you are not seeing your NFT or tokens immedietly, check back in several mintutes.
 ## Congragulations. You've done it!
 
-
-
-
+##Project workflow:<br>
+![](ReadmePhotos/project_flowchart.PNG)
 
 
