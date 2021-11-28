@@ -44,7 +44,7 @@ brownie run PATH/TO/deploy_contracty.py --network rinkeby
 ~~~
 *NOTE: This project must to be run on the Rinkeby network*
 A successful deployment to the Rinkeby test network should look something like this:
-![](ReadmePhotos/contracs_deployed.PNG)
+![](ReadmePhotos/contracts_deployed.PNG)
 
 11) It is imperative that you fund your ERC20Token.sol contract with LINK tokens. If you do not do this, you will not be able to get ERC-20 tokens. In order to mint a random amount of tokens from 1 - 15, a Chainlink random number oracle was utilized. More info on Chainlink's VRF (random number generator) can be found: https://docs.chain.link/docs/chainlink-vrf/
 Copy the contract address of your ERC20Token.sol contract and send it 1 LINK. Each oracle call will cost 0.1 LINK so you will be able to mint tokens 10 times before needing to refill the contract with LINK again. You can also send more than 1 LINK if you preferred.
