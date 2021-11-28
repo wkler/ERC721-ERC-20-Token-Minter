@@ -44,7 +44,7 @@ To deploy smart contracts to the blockchain, run the command:
 brownie run PATH/TO/deploy_contracty.py --network rinkeby
 ~~~
 A successful deployment to the Rinkeby test network should look something like this:
-![](ReadmePhotos/contracts_deployed.PNG)
+![](ReadmePhotos/contracts_deployed.PNG)<br>
 The screenshot above says "Already Verified" since they have been deployed during testing. When a contract is redeployed without modification to the source code, it does not need to re-verify. If you are deploying the contrafts for the first time, it should read "Verification Success".
 
 11) It is imperative that you fund your deployed ERC20Token.sol contract with LINK tokens. Not doing this will result in the program crashing when you try and mint an NFT. The resulting console error will look something like this:
