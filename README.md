@@ -35,7 +35,7 @@ pip install -r requirements.txt
 8) Install IPFS Command-Line. Instructions can be found: https://docs.ipfs.io/install/command-line/#official-distributions
 
 9) Inside the root directory of your project, create a .env file. Add API keys as well as your MetaMask accounts private key to the .env file. 
-![](ReadmePhotos/envDemo.PNG)
+![](ReadmePhotos/env_setup.PNG)
  
 10) Set name, symbol, and total supply for your ERC-20 token through the contract deployment script found at: <path/to/deploy_contracts.py>.The total supply will appear in you wallet once you have deployed the contracts and added the ERC-20 token address to your MetaMask wallet. For more info on importing your tokens into MetaMask, follow these steps: https://metamask.zendesk.com/hc/en-us/articles/360015489031-How-to-add-unlisted-tokens-custom-tokens-in-MetaMask
 To deploy smart contracts to the blockchain, run the command:
@@ -44,7 +44,7 @@ brownie run PATH/TO/deploy_contracty.py --network rinkeby
 ~~~
 *NOTE: This project must to be run on the Rinkeby network*
 A successful deployment to the Rinkeby test network should look something like this:
-ADD PHOTO OF TERMINAL AFTER SUCCESSFUL DEPLOYMENT
+![](ReadmePhotos/contracs_deployed.PNG)
 
 11) It is imperative that you fund your ERC20Token.sol contract with LINK tokens. If you do not do this, you will not be able to get ERC-20 tokens. In order to mint a random amount of tokens from 1 - 15, a Chainlink random number oracle was utilized. More info on Chainlink's VRF (random number generator) can be found: https://docs.chain.link/docs/chainlink-vrf/
 Copy the contract address of your ERC20Token.sol contract and send it 1 LINK. Each oracle call will cost 0.1 LINK so you will be able to mint tokens 10 times before needing to refill the contract with LINK again. You can also send more than 1 LINK if you preferred.
