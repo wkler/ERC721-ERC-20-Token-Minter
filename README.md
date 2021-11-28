@@ -45,11 +45,11 @@ brownie run PATH/TO/deploy_contracty.py --network rinkeby
 ~~~
 A successful deployment to the Rinkeby test network should look something like this:
 ![](ReadmePhotos/contracts_deployed.PNG)
-Where the photo above says "Already Verified" in red, yours should say something along the lines of, "Verification Success". It should be outlined in green. If you re-deploy the contracts without any changes to the code, then you will see "Already Verified" as you do in the image above.
+The screenshot above says "Already Verified" since they have been deployed during testing. When a contract is redeployed without modification to the source code, it does not need to re-verify. If you are deploying the contrafts for the first time, it should read "Verification Success".
 
-11) It is imperative that you fund your ERC20Token.sol contract with LINK tokens. If you do not do this, you will not be able to get ERC-20 tokens. In order to mint a random amount of tokens from 1 - 15, a Chainlink random number oracle was utilized. More info on Chainlink's VRF (random number generator) can be found: https://docs.chain.link/docs/chainlink-vrf/
-Copy the contract address of your ERC20Token.sol contract and send it 1 LINK. Each oracle call will cost 0.1 LINK so you will be able to mint tokens 10 times before needing to refill the contract with LINK again. You can also send more than 1 LINK if you preferred.
-
+11) It is imperative that you fund your deployed ERC20Token.sol contract with LINK tokens. Not doing this will result in the program crashing when you try and mint an NFT. The resulting console error will look something like this:
+![](ReadmePhotos/account_needs_link.PNG)
+If you see this error, just send link tokens from your wallet to the deployed ERC-20Token.sol contract address and restart the minting process.
 12) Start IPFS server in a new terminal with the command: 
 ~~~
 ipfs daemon
