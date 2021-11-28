@@ -66,7 +66,7 @@ brownie run PATH/TO/start_gui.py --network rinkeby
 
 ![](ReadmePhotos/stage_actions.PNG)<br>
 16) Give your NFT a name and description, then click "MINT" to start the minting process.
-![](ReadmePhotos/mint_actions.PNG) 
+![](ReadmePhotos/mint_actions.PNG)<br>
 17) If you followed the above steps correctly, your console should look something like this:
 ![](ReadmePhotos/mint_success.PNG)
 
