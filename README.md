@@ -55,16 +55,27 @@ If you see this error, just send link tokens from your wallet to the deployed ER
 ipfs daemon
 ~~~
 
-13) Once all of this set up is complete you can finally start the gui. Run the command:
+13) Once all of this set up is complete, you can finally start the gui. Run the command:
 ~~~
 brownie run PATH/TO/start_gui.py --network rinkeby
 ~~~
 
 14) Click on "browse" to select image with extension .PNG or .JPG. Once image has loaded in, select a style.
-15) Click on "stage" to add image to the minting area.
-16) Click "MINT" to start the minting process. Blockchains will take a couple minutes to confirm the transactions, so in the mean time, it is recommended to not just keep clicking things on the gui (LOL). Once a couple minutes have gone by check https://testnets.opensea.io/, connect your wallet ---> view profile, and assuming all of the above steps were followed, your NFT will be visible. In your MetaMask, your token balance will have updated once the Chainlink VRF has returned a random number. Since the oracle will have to go off-chain to fetch a random number, your ERC-20 tokens might take a several minutes to reach your wallet.
+![](ReadmePhotos/browse_btn.PNG)
+15) Select a style, then click "stage" to add image to the minting area. If you want to unstage an image, click "delete" to remove it.
+![](ReadmePhotos/stage_actions.PNG)
+16) Give your NFT a name and description, then click "MINT" to start the minting process.
+![](ReadmePhotos/mint_actions.PNG) 
+17) If you followed the above steps correctly, your console should look something like this:
+![](ReadmePhotos/mint_success.PNG)
+A successfull transaction means:
+You can view your NFT at https://testnets.opensea.io/account(make sure you are connected to the OpenSea rinkeby testnet).
+Your wallet gains from 1 and 15 ERC-20 Tokens from the contract you previously deployed.
 
+Blockchains can take time, so if you are not seeing your NFT or tokens immedietly, check back every couple mintutes.
 ## Congragulations. You've done it!
+
+
 
 
 
