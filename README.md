@@ -1,13 +1,11 @@
 # ERC-721 + ERC-20 Token Minter Gui
-This project aims to give users an all in one NFT creation experience, and is comprised of two smart contracts. The first is an NFT Factory contract that depends on OpenZeppelins ERC-721 libraries. The second contract is a basic ERC-20 token contract that incentivizes users to mint their NFT's through this program. Using the gui included as  part of this repo, users are able to select any .PNG or .JPG images from local storage, apply basic style filters, give a name and description, and mint it onto an Ethereum network. When a user mints an NFT, they will also be awarded from 1 and 15 ERC-20 tokens for minting their NFT through this projects ERC-721 contract. When an NFT created on this platform sells, a small fee will be applied. A Chainlink VRF was used to generate the randomness for deciding how many ERC-20 tokens are given to the user for minting an NFT.
+This project gives users an all in one NFT creation experience, and consists of two smart contracts. The first is a NFT Factory contract that depends on OpenZeppelins ERC-721 libraries. The second is a ERC-20 token contract that incentivizes users to mint their NFT's through the program. Users can apply basic style filters to their .PNG or .JPG, give a name and description, and then mint it onto an Ethereum network. When a user mints an NFT, they are awarded 1 to 15 ERC-20 tokens determined randomly by a Chainlink VRF oracle.
 
-This project is still in it's infancy, so no smart contracts exist on-chain, however, both contracts are provided in the repo, and can be deployed to test the gui's functionality. Steps are provided below. 
+This project is still in its infancy, so no smart contracts exist on-chain, however, both contracts are provided in the repo and can be deployed to test the GUI's functionality. Steps are provided below.
 
-*NOTE: This has only been tested on the Rinkeby network, but out of the box support for other networks will be added.*
+NOTE: This has only been tested on the Rinkeby network, but out of the box support for other networks will be added. 
 
-
-*This project is in it's early stages, and was made for the Chainlink, 2021 Fall Hackathon.
-https://chain.link/hackathon*
+This project was made for the Chainlink, 2021 Fall Hackathon. https://chain.link/hackathon
 
 
 # How to use
