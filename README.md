@@ -3,7 +3,7 @@ This project gives users an all in one NFT creation experience, and consists of 
 
 This project is still in its infancy, so no smart contracts exist on-chain, however, both contracts are provided in the repo and can be deployed to test the GUI's functionality. Steps are provided below.
 
-NOTE: This has only been tested on the Rinkeby network, but out of the box support for other networks will be added. 
+*NOTE: This has only been tested on the Rinkeby network, but out of the box support for other networks will be added.* 
 
 This project was made for the Chainlink, 2021 Fall Hackathon. https://chain.link/hackathon
 
