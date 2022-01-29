@@ -1,11 +1,11 @@
 # ERC-721 + ERC-20 Token Minter Gui
 This project gives users an all in one NFT creation experience, and consists of two smart contracts. The first is a NFT Factory contract that depends on OpenZeppelins ERC-721 libraries. The second is a ERC-20 token contract that incentivizes users to mint their NFT's through the program. Users can apply basic style filters to their .PNG or .JPG, give a name and description, and then mint it onto an Ethereum network. When a user mints an NFT, they are awarded 1 to 15 ERC-20 tokens determined randomly by a Chainlink VRF oracle.
 
-This project is still in its infancy, so no smart contracts exist on-chain, however, both contracts are provided in the repo and can be deployed to test the GUI's functionality. Steps are provided below.
+This project is still in its infancy, so no smart contracts exist on-chain, however, both contracts are provided in the repo and can be deployed to test the GUI's functionality. Steps are provided below.<br>
 
 *NOTE: This has only been tested on the Rinkeby network, but out of the box support for other networks will be added.* 
 
-This project was made for the Chainlink, 2021 Fall Hackathon. https://chain.link/hackathon
+This project is a Chainlink, 2021 Fall Hackathon winner. https://devpost.com/software/erc-20-erc-721-token-minter-gui
 
 
 # How to use
