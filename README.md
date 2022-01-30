@@ -27,12 +27,12 @@ https://infura.io/docs/ethereum
 ~~~
 git clone https://github.com/McManOfTheLand/ERC721-ERC-20-Token-Minter
 ~~~
- 6)  Create Python virtual environment and activate it. To do this, while in the root of your directory, type the following into your terminal:
+ 6)  Create Python virtual environment and activate it.
 ~~~
 python3 -m venv venv
 ./venv/scripts/activate
 ~~~
-7)  Install needed packages. These can be found in the "requirements.txt" located in the root directory. It should be noted that eth-brownie is NOT installed globally to prevent future version conflicts.
+7)  Install needed packages. These can be found in the "requirements.txt" located in the root directory. 
 ~~~
 pip install -r requirements.txt
 ~~~
