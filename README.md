@@ -47,11 +47,11 @@ To deploy smart contracts to the blockchain, run the command:
 ~~~
 brownie run PATH/TO/deploy_contracty.py --network rinkeby
 ~~~
-A successful deployment to the Rinkeby test network should look something like this:
+A successful deployment to the Rinkeby test network should look something like this:<br>
 ![](ReadmePhotos/contracts_deployed.PNG)<br>
 The screenshot above says "Already Verified" since they have been deployed during testing. When a contract is redeployed without modification to the source code, it does not need to re-verify. If you are deploying the contracts for the first time, it should read "Verification Success" in green text.
 
-11) Send LINK from your wallet to your deployed ERC-20Token.sol contract. This is an imperative step. Not doing so will result in the program crashing when you try and mint an NFT. The resulting console error will look something like this:
+11) Send LINK from your wallet to your deployed ERC-20Token.sol contract. This is an imperative step. Not doing so will result in the program crashing when you try and mint an NFT. The resulting console error will look something like this:<br>
 ![](ReadmePhotos/account_needs_link.PNG)
 If you see this error, just send link tokens from your wallet to the deployed ERC-20Token.sol contract address and restart the minting process.
 12) Start IPFS server in a new terminal with the command: 
@@ -64,7 +64,7 @@ ipfs daemon
 brownie run PATH/TO/start_gui.py --network rinkeby
 ~~~
 
-14) Click on "browse" to select image with extension .PNG or .JPG. Once image has loaded in, select a style.
+14) Click on "browse" to select image with extension .PNG or .JPG. Once image has loaded in, select a style.<br>
 ![](ReadmePhotos/browse_btn.PNG)
 15) Select a style, then click "stage" to add image to the minting area. If you want to unstage an image, click "delete" to remove it.
 
