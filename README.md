@@ -1,5 +1,5 @@
 # ERC-721 + ERC-20 Token Minter Gui
-This project gives users an all in one NFT creation experience, and consists of two smart contracts. The first is a NFT Factory contract that depends on OpenZeppelins ERC-721 libraries. The second is a ERC-20 token contract that incentivizes users to mint their NFT's through the program. Users can apply basic style filters to their .PNG or .JPG, give a name and description, and then mint it onto an Ethereum network. When a user mints an NFT, they are awarded 1 to 15 ERC-20 tokens determined randomly by a Chainlink VRF oracle.
+This project gives users an all in one NFT creation experience, and consists of two smart contracts. The first is a NFT Factory contract that depends on OpenZeppelin's ERC-721 libraries. The second is an ERC-20 token contract that incentivizes users to mint their NFT's through the program. Users can apply basic style filters to their .PNG or .JPG, give a name and description, and then mint it onto any EVM compatible network. When a user mints an NFT, they are awarded 1 to 15 ERC-20 tokens determined randomly by a Chainlink VRF oracle.
 
 This project is still in its infancy, so no smart contracts exist on-chain, however, both contracts are provided in the repo and can be deployed to test the GUI's functionality. Steps are provided below.<br>
 
@@ -9,13 +9,14 @@ This project is a Chainlink, 2021 Fall Hackathon winner. https://devpost.com/sof
 
 
 # How to use
-There are a handful of required setup steps for this project.
-1) You will need to install and create an account on MetaMask. Connect your wallet to the Rinkeby test network and obtain your accounts private key. MetaMask documentation can be found at: https://metamask.io/faqs.html
-Once you are connected to the Rinkeby network, your wallet will need some test ETH and LINK tokens. You can get some of each here: https://faucets.chain.link/rinkeby.
+There are a handful of required setup steps that need completing.
+1) You will need to install and create an account on MetaMask. Connect your wallet to the Rinkeby test network, and obtain your accounts private key. MetaMask documentation can be found: https://metamask.io/faqs.html<br>
+Once connected to the Rinkeby network, fill your walled with some test ETH and LINK tokens. You can get some of each here: https://faucets.chain.link/rinkeby.<br>
 Make sure you select "Ethereum Rinkeby" under the "Network" tab in MetaMask, othersise your tokens won't show up in your wallet.
 *In order to insure security for your real crypto, only use this wallet for testing purposes*
 
-2) Create a free Infura account https://infura.io/. Obtain it's Rinkeby API project ID. Documentation can be found at:
+2) Create a free Infura account: https://infura.io/ <br>
+3) Obtain it's Rinkeby API project ID. Documentation can be found at:
 https://infura.io/docs/ethereum
 
 3)  Create a free account on Pinata and obtain API key, and API secret. Documentation can be found at: https://docs.pinata.cloud/
