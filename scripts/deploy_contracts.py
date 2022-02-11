@@ -1,29 +1,30 @@
-#This file handles contract deployment.
-#See contract constructors for input field types
-#See config file for more info on arguments passed to contract constructors
-#To run this file, type: brownie run PATH/deploy_contract.py 
-#Make sure to have your virtual environment activated
+# This file handles contract deployment.
+# See the smart contract constructors for input field types.
+# See config file for more info on arguments passed to contract constructors.
 from brownie import ERC20Token, NftFactory, config, network
-from scripts.utils import(
-    get_account, LOCAL_BLOCKCHAIN_ENVIROMENTS
-)
-#Verifiys contracts on etherscan automatically when given as constructor argument
+from scripts.utils import get_account, LOCAL_BLOCKCHAIN_ENVIROMENTS
+
+# Programmatically verifies contracts on Etherscan if deplying to Ethereum testnet.
 publish_source = (
     True if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIROMENTS else False
 )
-#Deploys NFT factory contract with specified arguments
+
+
+# Deploys NFT factory contract.
 def deploy_nft():
     account = get_account()
     nft_factory = NftFactory.deploy(
-        "MyFactoryName", 
-        "FACTORYSYMBOL", 
-        {"from": account}, 
-        publish_source=publish_source
+        "MyFactoryName",
+        "FACTORYSYMBOL",
+        {"from": account},
+        publish_source=publish_source,
     )
+    print(nft_factory)
 
-#Deploys ERC20Token contract with specified arguments
+
+# Deploys ERC20Token contract
 def deploy_token():
-    account = get_account() 
+    account = get_account()
     token_contract = ERC20Token.deploy(
         "MyTokenName",
         "TOKENSYMBOL",
@@ -33,8 +34,10 @@ def deploy_token():
         config["networks"][network.show_active()]["link_fee"],
         1000000000000000000000,
         {"from": account},
-        publish_source=publish_source
+        publish_source=publish_source,
     )
+    print(token_contract)
+
 
 def main():
     deploy_nft()
