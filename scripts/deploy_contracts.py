@@ -4,7 +4,8 @@
 from brownie import ERC20Token, NftFactory, config, network
 from scripts.utils import get_account, LOCAL_BLOCKCHAIN_ENVIROMENTS
 
-# Programmatically verifies contracts on Etherscan if deplying to Ethereum testnet.
+# Programmatically verifies contracts on Etherscan if deploying to Ethereum testnet.
+# This veriable gets passed to the contract constructors.
 publish_source = (
     True if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIROMENTS else False
 )
