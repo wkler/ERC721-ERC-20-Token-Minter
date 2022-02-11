@@ -31,18 +31,19 @@ def upload_to_pinata():
             headers=headers,
         )
     # Opens and reads NFT metatdata
-    with Path(nft_metadata_filepath).open("rb") as fp:
+    with Path(nft_metadata_filepath).open("r") as fp:
         nft_meta_data = fp.read()
         # Pins the NFT metadata to Pinata
+        print(nft_meta_data)
         response = requests.post(
             PINATA_BASE_URL + endpoint,
-            files={"file": (nft_metadata_filename, nft_meta_data)},
+            files={"file": ("nft_metadata", nft_meta_data)},
             headers=headers,
         )
         meatadata_ipfs_hash = response.json()["IpfsHash"]
         # Inserts the IPFS hash provided in our POST response to the Pinata link
         pinned_metadata_url = f"https://gateway.pinata.cloud/ipfs/{meatadata_ipfs_hash}"
-        print(f"  Minting {pinned_metadata_url}")
+        print(f"Minting: {pinned_metadata_url}")
         # Invokes the NFT minting function within smart contract and passes it the pinned metadata URL
         mint_nft_metadata(pinned_metadata_url)
 
