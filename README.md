@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 ### 4) Create .env file <br>
 Inside the root directory of your project, create a .env file. Add API keys as well as your MetaMask accounts private key.
-![](ReadmePhotos/env_setup.PNG)
+![](ReadmePhotos/env_setup.PNG ".env file populated with necessary information")
  
 ### 5) Deploy contracts <br>
 To set the name and symbol for smart contracts, navigate to the `ERC721-ERC-20-Token-Minter/scripts/deploy_contracts.py` folder and change the deployment parameters that will ultimately get passed to the smart contract's constructor. <br>
@@ -45,7 +45,7 @@ Deploy contracts to the Rinkeby network:
 brownie run scripts/deploy_contracty.py --network rinkeby
 ~~~
 A successful deployment to the Rinkeby test network should look something like this:<br>
-![](ReadmePhotos/contracts_deployed.PNG)<br>
+![](ReadmePhotos/deployment_success.png "Console output on deployment success")<br>
 The screenshot above says "Already Verified" since they have been deployed during testing. When a contract is redeployed without modification to the source code, it does not need to re-verify. If you are deploying the contracts for the first time, it should read "Verification Success" in green text.
 
 11) Send LINK from your wallet to your deployed ERC-20Token.sol contract. This is an imperative step. Not doing so will result in the program crashing when you try and mint an NFT. The resulting console error will look something like this:<br>
