@@ -10,13 +10,14 @@ This project is a Chainlink, 2021 Fall Hackathon winner. https://devpost.com/sof
 
 # Project Requirements <br>
 1) MetaMask - https://metamask.io/faqs/ <br> 
-2) Provider (choose one from below): <br> 
+ - Obtain Rinkeby ETH and LINK - https://faucets.chain.link/rinkeby <br>
+3) Provider (choose one from below): <br> 
  - Infura - https://infura.io/ <br>
  - Alchemy - https://www.alchemy.com/ <br>
  - Moralis - https://moralis.io/speedy-nodes/ <br> 
-3) Etherscan API Key - https://etherscan.io/myapikey <br>
-4)  Pinata - https://docs.pinata.cloud/
-5)  IPFS command-line - https://docs.ipfs.io/install/command-line/#official-distributions
+4) Etherscan API Key - https://etherscan.io/myapikey <br>
+5)  Pinata - https://docs.pinata.cloud/
+6)  IPFS command-line - https://docs.ipfs.io/install/command-line/#official-distributions
 
 # Setup Steps <br>
 
@@ -44,18 +45,14 @@ Deploy contracts to the Rinkeby network:
 ~~~
 brownie run scripts/deploy_contracty.py --network rinkeby
 ~~~
-A successful deployment to the Rinkeby test network should look something like this:<br>
-![](ReadmePhotos/deployment_success.png "Console output on deployment success")<br>
-The screenshot above says "Already Verified" since they have been deployed during testing. When a contract is redeployed without modification to the source code, it does not need to re-verify. If you are deploying the contracts for the first time, it should read "Verification Success" in green text.
-
-11) Send LINK from your wallet to your deployed ERC-20Token.sol contract. This is an imperative step. Not doing so will result in the program crashing when you try and mint an NFT. The resulting console error will look something like this:<br>
-![](ReadmePhotos/account_needs_link.PNG)
-If you see this error, just send link tokens from your wallet to the deployed ERC-20Token.sol contract address and restart the minting process.
-12) Start IPFS server in a new terminal with the command: 
+A successful deployment to the Rinkeby test network should look something like this: <br>
+![](ReadmePhotos/deployment_success.png "Console output on deployment success") <br>
+### 6) Send LINK from your wallet to your deployed ERC-20Token.sol contract. This is an imperative step. Not doing so will result in the program crashing when you try and mint an NFT. <br> 
+### 7) Start IPFS server <br>
+In a new terminal, run the command: <br>
 ~~~
 ipfs daemon
 ~~~
-
 13) Once all of this set up is complete, you can finally start the gui. Run the command:
 ~~~
 brownie run PATH/TO/start_gui.py --network rinkeby
