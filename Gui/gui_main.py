@@ -47,8 +47,6 @@ class BrowseButtons:
                 + self.font_size
             )
             self.current_state = self.STATES[1]
-            print(f"  current state of Gui is {self.current_state}")
-            print("  Image set!")
         else:
             print("  No image was selected")
 
@@ -129,7 +127,6 @@ class ClearImage:
     def delete_button(self):
         self.delete_btn = self.ui.deleteButton
         self.delete_btn.clicked.connect(self.remove_image_from_minting_area)
-        print("  Delete button working")
 
     def remove_image_from_minting_area(self):
         self.right_label.clear()
@@ -141,7 +138,6 @@ class ClearImage:
         )
         self.right_label.setText("Please stage an image \nin order to mint it")
         self.current_state = self.STATES[1]
-        print(f"  State updated to {self.current_state}")
 
 
 class MintingFunctionality:
@@ -164,8 +160,6 @@ class MintingFunctionality:
 # loadUIType returns a tuple of the builder class, and the
 # PyQt5.QtWidgets.QMainWindow class -> also known as the baseClass
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
-print(baseClass)
-print(Ui_MainWindow)
 
 
 class Main(
