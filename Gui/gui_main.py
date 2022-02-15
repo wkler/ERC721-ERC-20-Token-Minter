@@ -1,22 +1,17 @@
 import sys
-from scripts.pin_metadata_and_mint import upload_to_pinata
 
-sys.path.append("contracts")
-sys.path.append("scripts")
-sys.path.append("ImageEditor")
-sys.path.append("metadata_info")
-from upload_image_to_ipfs import ipfs_upload
+if "metadata_info" not in sys.path:
+    sys.path.append("metadata_info")
 from metadata_template import nft_metadata
+from ImageEditor.adaptive_threshold import adaptive_threshold_style
+from ImageEditor.cartoon_style import cartoonify_image
+from scripts.pin_metadata_and_mint import upload_to_pinata
+from scripts.upload_image_to_ipfs import ipfs_upload
+from scripts.mint_tokens import mint_erc20_tokens
 from PyQt5 import uic
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 from PyQt5.QtGui import QPixmap
-from adaptive_threshold import adaptive_threshold_style
-from cartoon_style import cartoonify_image
-from mint_tokens import mint_erc20_tokens
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 class BrowseButtons:
@@ -89,30 +84,28 @@ class ImageStaging:
         self.stage_btn = self.ui.stageButton
         self.stage_btn.clicked.connect(self.checked_checkbox)
 
-    def test(self):
-        self.pass_image_to_minting_area()
-        self.right_label.setStyleSheet(self.border_css_green)
-
     def checked_checkbox(self):
         # Applies style to selected image depening on which checkbox is checked
         if self.ui.styleOneCheckBox.isChecked():
+            # Applies filter to image
             adaptive_threshold_style()
-            self.test()
-            # self.pass_image_to_minting_area()
-            # self.right_label.setStyleSheet(self.border_css_green)
+            self.pass_image()
         elif self.ui.styleTwoCheckBox.isChecked():
+            # Applies filter to image
             cartoonify_image()
-            self.test()
-            # self.pass_image_to_minting_area()
-            # self.right_label.setStyleSheet(self.border_css_green)
+            self.pass_image()
         else:
             print("No style has been selected.")
 
-    # Applies the image style that the user specifes. The check box determines which
-    # Opencv style to give the image
+    # Helper function that is run when a photo is staged, regardless of what style is applied.
+    def pass_image(self):
+        self.pass_image_to_minting_area()
+        self.right_label.setStyleSheet(self.border_css_green)
+
+    # Sets the right photo area with the freshly styled image.
     def pass_image_to_minting_area(self):
         if self.current_state == self.STATES[1]:
-            # Establishes a path to image (which should be in the root of directory) and inputs it into gui
+            # Establishes a path to image (which should be in the root of directory) and connects it with the gui
             self.styled_image_path = "stylized.png"
             self.styled_image = QPixmap(self.styled_image_path)
             self.right_label.setPixmap(self.styled_image)
@@ -123,11 +116,15 @@ class ImageStaging:
             self.current_state = self.STATES[2]
 
 
+# Removes the styled image from the gui so that a new
+# style can be applied to the image and staged
 class ClearImage:
+    # Connects the GUI's delete button to it's functionality
     def delete_button(self):
         self.delete_btn = self.ui.deleteButton
         self.delete_btn.clicked.connect(self.remove_image_from_minting_area)
 
+    # Resets the styling and state of the right gui label area
     def remove_image_from_minting_area(self):
         self.right_label.clear()
         self.right_label.setStyleSheet(
@@ -140,18 +137,19 @@ class ClearImage:
         self.current_state = self.STATES[1]
 
 
+# Handles the GUI's MINT button functionality
 class MintingFunctionality:
+    # Connects the GUI's MINT button to it's functionality
     def mint_button(self):
         self.mint_btn = self.ui.mintButton
         self.mint_btn.clicked.connect(self.mint_functionality)
 
     def mint_functionality(self):
         if self.current_state == self.STATES[2]:
-            self.name_input_box = self.ui.nameInputBox
-            self.description_input_box = self.ui.descriptionInputBox
-            # Updates python dictionary to be dumped into json file
-            nft_metadata["name"] = self.name_input_box.text()
-            nft_metadata["description"] = self.description_input_box.text()
+            # Sets python dictionary to be dumped into json file
+            nft_metadata["name"] = self.ui.nameInputBox.text()
+            nft_metadata["description"] = self.ui.descriptionInputBox.text()
+            # Runs all three scripts, all of which can be found: ERC-721-ERC-20-TOKEN-MINTER-GUI/scripts
             ipfs_upload()
             upload_to_pinata()
             mint_erc20_tokens()
@@ -161,7 +159,7 @@ class MintingFunctionality:
 # PyQt5.QtWidgets.QMainWindow class -> also known as the baseClass
 Ui_MainWindow, baseClass = uic.loadUiType("GuiV2.ui")
 
-
+# Set up class that inherifts all other classes.
 class Main(
     baseClass,
     BrowseButtons,
@@ -170,8 +168,8 @@ class Main(
     ClearImage,
     MintingFunctionality,
 ):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self):
+        super().__init__()
         self.STATES = ["Home", "Selected", "Staging", "Minting"]
         self.current_state = self.STATES[0]
         self.ui = Ui_MainWindow()
@@ -182,9 +180,9 @@ class Main(
         self.delete_button()
         self.mint_button()
         self.show()
-        print(f"  Current state of Gui is {self.current_state}")
 
 
 app = qtw.QApplication(sys.argv)
 start = Main()
+# Exits the execution of the gui
 sys.exit(app.exec_())
