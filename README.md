@@ -15,33 +15,34 @@ This project is a Chainlink, 2021 Fall Hackathon winner. https://devpost.com/sof
  - Alchemy - https://www.alchemy.com/ <br>
  - Moralis - https://moralis.io/speedy-nodes/ <br> 
 3) Etherscan API Key - https://etherscan.io/myapikey <br>
-4)  Create a free account on Pinata and obtain API key, and API secret. Documentation can be found at: https://docs.pinata.cloud/
+4)  Pinata - https://docs.pinata.cloud/
+5)  IPFS command-line - https://docs.ipfs.io/install/command-line/#official-distributions
 
 # Setup Steps <br>
 
-Clone repository
+### 1) Clone repository <br>
 ~~~
 git clone https://github.com/McManOfTheLand/ERC721-ERC-20-Token-Minter
 ~~~
- 6)  Create Python virtual environment and activate it.
+### 2)  Create and activate python virtual enviroment <br>
 ~~~
 python3 -m venv venv
 ./venv/scripts/activate
 ~~~
-7)  Install needed packages. These can be found in the "requirements.txt" located in the root directory. 
+### 3)  Install packages <br>
 ~~~
 pip install -r requirements.txt
 ~~~
-8) Install IPFS Command-Line. Instructions can be found: https://docs.ipfs.io/install/command-line/#official-distributions
 
-9) Inside the root directory of your project, create a .env file. Add API keys as well as your MetaMask accounts private key to the .env file. You will have to add 0x infront of you private key. See image below.
+### 4) Create .env file <br>
+Inside the root directory of your project, create a .env file. Add API keys as well as your MetaMask accounts private key.
 ![](ReadmePhotos/env_setup.PNG)
  
-10) Set name, symbol, and total supply for your ERC-20 token through the contract deployment script found at: <PATH/TO/deploy_contracts.py>.The total supply will appear in your wallet once you have deployed the contracts and added the ERC-20 token address to your MetaMask wallet. For more info on importing your tokens into MetaMask, follow these steps: https://metamask.zendesk.com/hc/en-us/articles/360015489031-How-to-add-unlisted-tokens-custom-tokens-in-MetaMask
-
-To deploy smart contracts to the blockchain, run the command:
+### 5) Deploy contracts <br>
+To set the name and symbol for smart contracts, navigate to the `ERC721-ERC-20-Token-Minter/scripts/deploy_contracts.py` folder and change the deployment parameters that will ultimately get passed to the smart contract's constructor. <br>
+Deploy contracts to the Rinkeby network:
 ~~~
-brownie run PATH/TO/deploy_contracty.py --network rinkeby
+brownie run scripts/deploy_contracty.py --network rinkeby
 ~~~
 A successful deployment to the Rinkeby test network should look something like this:<br>
 ![](ReadmePhotos/contracts_deployed.PNG)<br>
