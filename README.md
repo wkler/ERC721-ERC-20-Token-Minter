@@ -8,22 +8,18 @@ This project is still in its infancy, so no smart contracts exist on-chain, howe
 This project is a Chainlink, 2021 Fall Hackathon winner. https://devpost.com/software/erc-20-erc-721-token-minter-gui
 
 
-# How to use
-There are a handful of required setup steps that need completing.
-1) You will need to install and create an account on MetaMask. Connect your wallet to the Rinkeby test network, and obtain your accounts private key. MetaMask documentation can be found: https://metamask.io/faqs.html<br>
-Once connected to the Rinkeby network, fill your walled with some test ETH and LINK tokens. You can get some of each here: https://faucets.chain.link/rinkeby.<br>
-Make sure you select "Ethereum Rinkeby" under the "Network" tab in MetaMask, othersise your tokens won't show up in your wallet.
-*In order to insure security for your real crypto, only use this wallet for testing purposes*
+# Project Requirements <br>
+1) MetaMask - https://metamask.io/faqs/ <br> 
+2) Provider (choose one from below): <br> 
+ - Infura - https://infura.io/ <br>
+ - Alchemy - https://www.alchemy.com/ <br>
+ - Moralis - https://moralis.io/speedy-nodes/ <br> 
+3) Etherscan API Key - https://etherscan.io/myapikey <br>
+4)  Create a free account on Pinata and obtain API key, and API secret. Documentation can be found at: https://docs.pinata.cloud/
 
-2) Create a free Infura account: https://infura.io/ <br>
-3) Obtain it's Rinkeby API project ID. Documentation can be found at:
-https://infura.io/docs/ethereum
+# Setup Steps <br>
 
-3)  Create a free account on Pinata and obtain API key, and API secret. Documentation can be found at: https://docs.pinata.cloud/
-
-4) Create free account on Etherscan and obtain API token. Documentation can be found at: https://docs.etherscan.io/
-
-5)  Clone repository
+Clone repository
 ~~~
 git clone https://github.com/McManOfTheLand/ERC721-ERC-20-Token-Minter
 ~~~
