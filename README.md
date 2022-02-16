@@ -48,35 +48,39 @@ brownie run scripts/deploy_contracty.py --network rinkeby
 ~~~
 A successful deployment to the Rinkeby test network should look something like this: <br>
 ![](ReadmePhotos/deployment_success.png "Console output on deployment success") <br>
-### 6) Send LINK from your wallet to your deployed ERC-20Token.sol contract. This is an imperative step. Not doing so will result in the program crashing when you try and mint an NFT. <br> 
+### 6) Fund ERC-20 token contract instance with LINK<br>
+This is an imperative step. Not doing so will result in the program crashing when you try and mint an NFT. <br> 
 ### 7) Start IPFS server <br>
 In a new terminal, run the command: <br>
 ~~~
 ipfs daemon
 ~~~
-13) Once all of this set up is complete, you can finally start the gui. Run the command:
+### 8) Start GUI <br> 
+Run the command: <br>
 ~~~
-brownie run PATH/TO/start_gui.py --network rinkeby
+brownie run scripts/start_gui.py --network rinkeby
 ~~~
+### 9) Get image from local storage <br> 
+Click on "browse" to select an image with the extension .PNG or .JPG. <br>
+![](ReadmePhotos/browse_btn.PNG "Click the "browse" button to select an image") <br>
+### 10) Stage an image <br> 
+Select a style using the checkboxs. Then click "stage" to add image to the minting area with the style you've selected. If you want to unstage an image, click "delete" to remove it from the minting area.
+![](ReadmePhotos/stage_actions.PNG "Click the "stage" button to apply the style to the image") <br>
+### 11) Give your NFT a name and description <br>
+Use the provided dialogue boxes to give a name and description to your NFT.
+![](ReadmePhotos/mint_actions.PNG "Provide a name and description to your NFT")<br>
+### 12) Completion 
+If you followed the above steps correctly, your console should look something like this:
+![](ReadmePhotos/mint_success.PNG "Console output on minting success")
 
-14) Click on "browse" to select image with extension .PNG or .JPG. Once image has loaded in, select a style.<br>
-![](ReadmePhotos/browse_btn.PNG)
-15) Select a style, then click "stage" to add image to the minting area. If you want to unstage an image, click "delete" to remove it.
-
-![](ReadmePhotos/stage_actions.PNG)<br>
-16) Give your NFT a name and description, then click "MINT" to start the minting process.
-![](ReadmePhotos/mint_actions.PNG)<br>
-17) If you followed the above steps correctly, your console should look something like this:
-![](ReadmePhotos/mint_success.PNG)
-
-A successfull transaction means:<br>
-You can view your NFT at https://testnets.opensea.io/account (make sure you are connected to the OpenSea rinkeby testnet).<br>
+### A successfull transaction means <br>
+You can view your NFT at https://testnets.opensea.io/account (make sure you are connected to the OpenSea rinkeby testnet). <br>
 Your wallet gains from 1 and 15 ERC-20 Tokens from the contract you previously deployed.
 
 Blockchains can take time. If you are not seeing your NFT or tokens immedietly, check back in several mintutes.
 ## Congragulations. You've done it!
 
-## Project workflow:<br>
+### Project workflow <br>
 ![](ReadmePhotos/flowchart.PNG)
 
 
