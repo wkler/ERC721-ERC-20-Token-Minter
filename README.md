@@ -80,7 +80,7 @@ Blockchains can take time. If you are not seeing your NFT or tokens immedietly, 
 ## Congragulations. You've done it!
 
 ### Project workflow <br>
-Steps are numbered. Steps that have the same number are operations that are executed at by the same trigger.
+Steps are numbered. Steps that have the same number are operations that are executed by the same trigger.
 ![](ReadmePhotos/flowchart.png "Project workflow")
 
 
